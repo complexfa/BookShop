@@ -18,4 +18,20 @@ public class UserService {
         sqlSession.close();
         return user;
     }
+
+    public void add(User user){
+        SqlSession sqlSession = factory.openSession(true);
+        UserMapper usermapper = sqlSession.getMapper(UserMapper.class);
+        usermapper.add(user);
+        sqlSession.close();
+    }
+
+    public User selectByPhone(String phone){
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = mapper.selectByPhone(phone);
+        sqlSession.close();
+        return user;
+    }
+
 }

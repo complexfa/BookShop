@@ -30,4 +30,32 @@ public class UserTest {
         System.out.println(user);
         sqlSession.close();
     }
+    @Test
+    public void testadd() throws IOException {
+        String phone = "24567" ;
+        String password = "1278";
+        String sex = "女";
+        String name = "小西";
+        User user = new User();
+        user.setPhone(phone);
+        user.setPassword(password);
+        user.setClient_sex(sex);
+        user.setName(name);
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+
+        UserMapper usermapper = sqlSession.getMapper(UserMapper.class);
+        User user1 = usermapper.selectByPhoneAndPass(phone,password);
+        if(user1 == null){
+            usermapper.add(user);
+        }
+        else
+            System.out.println("已存在");
+        System.out.println(user);
+        sqlSession.close();
+    }
 }

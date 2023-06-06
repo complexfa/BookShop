@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  namespace:名称空间
+  -->
+<mapper namespace="com.xxx.mapper.AddBookMapper">
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="phone">
+        insert into books(book_id,book_price,book_name,book_num)
+        value(#{book_id},#{book_price},#{book_name},#{book_num});
+    </insert>
+
+    <select id="selectAll" resultType="com.xxx.pojo.Book">
+        select * from books where book_id = #{book_id} and book_price = #{book_price} and book_name = #{book_name} and book_num = #{book_num};
+    </select>
+
+
+</mapper>

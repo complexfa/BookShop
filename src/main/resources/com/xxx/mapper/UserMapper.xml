@@ -13,7 +13,10 @@
     </insert>
 
     <select id="selectByPhoneAndPass" resultType="com.xxx.pojo.User">
-        select * from client where phone = #{phone} and password = #{password}
+        select * from client where phone = #{phone} and password = #{password};
+    </select>
+    <select id="selectByPhone" resultType="com.xxx.pojo.User">
+        select * from client where phone = #{phone};
     </select>
 
 

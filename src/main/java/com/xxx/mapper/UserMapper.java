@@ -7,5 +7,8 @@ import java.util.List;
 
 public interface UserMapper {
     void add(User user);
+
     User selectByPhoneAndPass(@Param("phone") String phone,@Param("password") String password);
+
+    User selectByPhone(@Param("phone") String phone);
 }

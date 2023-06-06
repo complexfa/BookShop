@@ -37,7 +37,7 @@
       <div id="text1">
         <form action="http://localhost:8080/bs/address" method="post">
           <select name="addr" class="s1" >
-            <option value="1">北京</option>
+            <option value="北京">北京</option>
             <option value="2">2</option>
             <option value="3">3</option>
           </select>
